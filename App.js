@@ -22,16 +22,32 @@ type Props = {};
 export default class App extends Component<Props> {
   constructor(props) {
     super(props);
-    this.state = { email: ' ', password: ' '}
+    this.state = {
+                   email: ' Email ',
+                   password: ' Password '
+                 }
   }
   render() {
    return (
      <View style={styles.container}>
-       <Text style={styles.welcome}> Login </Text>
-       <TextInput placeholder= 'Email' />
-       <TextInput placeholder= 'Password' />
+     <View style={styles.welcome}>
+       <TextInput
+         onChangeText= {(email) => this.setState({email})}
+         value= {this.state.email}
+       />
+     </View>
+
+     <View style={styles.welcome}>
+       <TextInput
+         onChangeText= {(password) => this.setState({password})}
+         value= {this.state.password}
+       />
+     </View>
+
+     <View style={styles.welcome}>
        <Button title='Login' backgroundColor='#FFFD700'/>
      </View>
+   </View>
    );
 }
 }
